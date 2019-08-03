@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LowRez"
-run/main_scene="res://Scenes/Stage.tscn"
+run/main_scene="res://Scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -24,8 +24,8 @@ config/icon="res://icon.png"
 window/size/width=64
 window/size/height=64
 window/size/resizable=false
-window/size/test_width=512
-window/size/test_height=512
+window/size/test_width=256
+window/size/test_height=256
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

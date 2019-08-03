@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/samurai_western_start_menu.ogg-880253a4188ab9fb93c9d748cafac4ca.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/samurai_western_start_menu.ogg"
+dest_files=[ "res://.import/samurai_western_start_menu.ogg-880253a4188ab9fb93c9d748cafac4ca.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
