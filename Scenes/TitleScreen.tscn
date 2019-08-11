@@ -42,7 +42,7 @@ alignment = 1
 [node name="Play_Button" parent="menu/main_options/buttons_container" instance=ExtResource( 3 )]
 size_flags_horizontal = 1
 size_flags_vertical = 1
-scene_to_load = "res://Scenes/Stage.tscn"
+scene_to_load = "res://Scenes/Game.tscn"
 
 [node name="Options_Button" parent="menu/main_options/buttons_container" instance=ExtResource( 4 )]
 margin_top = 24.0
@@ -57,4 +57,7 @@ visible = false
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
+
+[node name="tween" type="Tween" parent="."]
 [connection signal="fade_finished" from="Fade_to_Black" to="." method="_on_fade_to_black_fade_finished"]
+[connection signal="tween_completed" from="tween" to="." method="_on_tween_tween_completed"]

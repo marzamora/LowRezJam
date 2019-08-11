@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Scripts/UserInterface.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/health_under.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/health_over.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/health_progress.png" type="Texture" id=4]
+
+[node name="UserInterface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="bars" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = 4.0
+
+[node name="health_bar" type="TextureProgress" parent="bars"]
+margin_right = 16.0
+margin_bottom = 4.0
+texture_under = ExtResource( 2 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+tint_progress = Color( 0.54902, 0, 0, 1 )

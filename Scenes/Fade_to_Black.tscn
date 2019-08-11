@@ -4,7 +4,6 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -12,7 +11,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
@@ -21,7 +20,7 @@ tracks/0/keys = {
 [node name="Fade_to_Black" type="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0 )
+color = Color( 0, 0, 0, 0.5 )
 script = ExtResource( 1 )
 
 [node name="fade_anim" type="AnimationPlayer" parent="."]
