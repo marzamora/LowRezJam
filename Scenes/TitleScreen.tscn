@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Music/samurai_western_start_menu.ogg" type="AudioStream" id=6]
 
 [node name="TitleScreen" type="Control"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -56,6 +57,7 @@ visible = false
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = -20.293
 autoplay = true
 
 [node name="tween" type="Tween" parent="."]
