@@ -1,20 +1,15 @@
-extends KinematicBody2D
+extends "res://engine/enemy_base.gd"
 
 signal health_updated(health)
 signal max_health_updated(max_health)
-signal killed()
+signal boss_killed()
 
-export var speed = 24
-export (float) var max_health = 100 
+export (float) var max_health = 200 
 
 onready var UI = $EnemyHealthBar
 onready var health = max_health setget _set_health
 
-var movetimer_length = 30
-var movetimer = 0
 var state_machine
-var velocity = Vector2(0,0)
-var move_direction = Vector2(0,0)
 
 func _ready():
 	state_machine = $anim_tree.get("parameters/playback")
@@ -37,21 +32,6 @@ func _physics_process(delta):
 		move_direction = dir.rand()
 		movetimer = movetimer_length
 
-func get_input():
-	velocity = Vector2(0,0)
-	if move_direction == dir.up:
-		velocity.y -= 1
-	if move_direction == dir.down:
-		velocity.y += 1
-	if move_direction == dir.left:
-		velocity.x -= 1
-		$sprite.scale.x = -1
-	if move_direction == dir.right:
-		velocity.x += 1
-		$sprite.scale.x = 1
-	if move_direction == dir.zero:
-		velocity = dir.zero
-	velocity = velocity.normalized() * speed
 
 func anim_switch(animation):
 	var current_anim_state = state_machine.get_current_node()
@@ -75,10 +55,12 @@ func _set_health(value):
 		emit_signal("health_updated", health)
 		if health == 0:
 			deaded()
-			emit_signal("killed")
+			emit_signal("boss_killed")
 
 func _area_entered(area):
 	if area.is_in_group("player_weapon"):
+		damage(3)
+	if area.is_in_group("player_projectile"):
 		damage(2)
 
 

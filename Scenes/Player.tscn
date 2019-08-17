@@ -996,4 +996,9 @@ parameters/playback = SubResource( 83 )
 
 [node name="area_collision" type="CollisionShape2D" parent="area"]
 shape = SubResource( 84 )
+
+[node name="projectile_timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="projectile_timer" to="." method="_on_projectile_timer_timeout"]

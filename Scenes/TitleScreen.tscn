@@ -8,7 +8,6 @@
 [ext_resource path="res://Assets/Music/samurai_western_start_menu.ogg" type="AudioStream" id=6]
 
 [node name="TitleScreen" type="Control"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -41,11 +40,14 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="Play_Button" parent="menu/main_options/buttons_container" instance=ExtResource( 3 )]
+margin_top = 12.0
+margin_bottom = 32.0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 scene_to_load = "res://Scenes/Game.tscn"
 
 [node name="Options_Button" parent="menu/main_options/buttons_container" instance=ExtResource( 4 )]
+visible = false
 margin_top = 24.0
 margin_bottom = 44.0
 size_flags_horizontal = 1
@@ -57,7 +59,7 @@ visible = false
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = -20.293
+volume_db = -20.0
 autoplay = true
 
 [node name="tween" type="Tween" parent="."]

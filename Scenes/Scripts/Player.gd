@@ -18,7 +18,7 @@ var velocity = Vector2(0,0)
 var input_direction = Vector2(0,0)
 var is_dashing = false
 var sprite_dir = "_right"
-var can_shoot = true
+var can_throw = true
 
 func _ready():
 	state_machine = $anim_tree.get("parameters/playback")
@@ -53,13 +53,14 @@ func get_input():
 		$sprite.set_visible(false)
 	if Input.is_action_just_pressed("attack1"):
 		anim_switch("attack")
-	if Input.is_action_pressed("attack2") and can_shoot:
+	if Input.is_action_just_pressed("attack2") and can_throw:
 		var stage_node = get_parent()
 		var kunai_inst = kunai_scene.instance()
-		kunai_inst.position = (position + Vector2(10,0))
+		kunai_inst.travel_direction(sprite_dir)
+		kunai_inst.position = (position + kunai_inst.pos_vector)
 		stage_node.add_child(kunai_inst)
-		#can_shoot = false
-		#get_node("timer").start()
+		can_throw = false
+		get_node("projectile_timer").start()
 	if !is_dashing:
 		input_direction = velocity
 		velocity = velocity.normalized() * speed
@@ -96,7 +97,7 @@ func damage(amount):
 		_set_health(health - amount)
 
 func deaded():
-	pass
+	queue_free()
 
 func _set_health(value):
 	var prev_health = health
@@ -111,8 +112,8 @@ func _area_entered(area):
 	if area.is_in_group("enemy"):
 		damage(4)
 
-
-
+func _on_projectile_timer_timeout():
+	can_throw = true
 
 
 
